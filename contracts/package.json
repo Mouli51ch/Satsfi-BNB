@@ -1,0 +1,20 @@
+{
+  "name": "hardhat-project",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:core": "hardhat run scripts/deploy.ts --network core_testnet",
+    "deploy:bnb": "hardhat run scripts/deploy.ts --network bnb_testnet",
+    "verify:core": "hardhat verify --network core_testnet",
+    "verify:bnb": "hardhat verify --network bnb_testnet"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.24.3",
+    "hardhat-preprocessor": "^0.1.5"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.3.0",
+    "dotenv": "^17.2.0"
+  }
+}
