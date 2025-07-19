@@ -110,7 +110,7 @@ Update the contract addresses in the README.md file under the "BNB Chain Testnet
 1. Start the frontend: `cd frontend && npm run dev`
 2. Connect your wallet to BNB testnet
 3. Test the following features:
-   - ✅ Wallet connection via Civic and Wagmi
+   - ✅ Wallet connection via Wagmi
    - ✅ AI prompt-to-stake functionality
    - ✅ Smart contract interactions (stake, view, dashboard)
    - ✅ Proper BNB testnet explorer links

@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X, Home, BarChart3, History, TrendingUp, Settings } from "lucide-react"
-import { UserButton, useUser } from "@civic/auth/react"
 import { useAccount } from "wagmi"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
@@ -15,7 +14,6 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
-  const { user } = useUser()
   const { address } = useAccount()
 
   useEffect(() => {
@@ -28,7 +26,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const linkUser = async () => {
-      if (user?.email && address) {
+      if (address) {
         try {
           await fetch(`${API_URL}/user/link`, {
             method: 'POST',
@@ -36,7 +34,6 @@ export default function Navbar() {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              email: user.email,
               walletAddress: address,
             }),
           });
@@ -49,7 +46,7 @@ export default function Navbar() {
     };
 
     linkUser();
-  }, [user, address]);
+  }, [address]);
 
   const navItems = [
     { name: "Home", href: "/", icon: Home },
@@ -104,15 +101,11 @@ export default function Navbar() {
             <div className="relative ml-4">
               <ConnectWalletButton />
                 </div>
-            <div className="relative ml-4">
-              <UserButton />
-            </div>
           </div>
 
           {/* Mobile menu button */}
           <div className="flex items-center gap-2 md:hidden">
             <ConnectWalletButton />
-            <UserButton />
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="outline" size="icon" className="md:hidden">

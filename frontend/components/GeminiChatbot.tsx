@@ -4,7 +4,6 @@ import type React from "react"
 
 import { useState, useRef, useEffect } from "react"
 import { MessageCircle, X, Send, Sparkles, Bot, User, Minimize2, Maximize2, Trash2 } from "lucide-react"
-import { useUser } from "@civic/auth/react"
 import { useAccount } from "wagmi"
 import { API_URL } from "@/lib/config"
 import { toast as sonnerToast } from "sonner"

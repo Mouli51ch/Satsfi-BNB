@@ -7,7 +7,6 @@ import { toast as sonnerToast } from "sonner"
 import { Button } from "./ui/button"
 import { Switch } from "./ui/switch"
 import { Label } from "./ui/label"
-import { useUser } from "@civic/auth/react"
 import {
   API_URL,
   StakingVaultABI,
@@ -43,7 +42,6 @@ export default function IntentInput({
   const [intent, setIntent] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [mode, setMode] = useState<"learner" | "pro">("pro")
-  const { user, signIn: civicSignIn } = useUser()
   const { address } = useAccount()
   const {
     data: hash,
@@ -59,8 +57,6 @@ export default function IntentInput({
 
   const [transactionId, setTransactionId] = useState<string | null>(null)
   const [isExplaining, setIsExplaining] = useState(false)
-
-  const effectiveSignIn = onSignIn || civicSignIn
 
   useEffect(() => {
     if (defaultValue) {
@@ -238,15 +234,15 @@ export default function IntentInput({
       return
     }
 
-    if (!user) {
+    if (!address) {
       setIsLoading(true)
       setTimeout(() => {
-        sonnerToast.info("Sign in to continue", {
+        sonnerToast.info("Connect your wallet", {
           description:
-            "That's a great question! Please sign in to get a personalized answer.",
+            "That's a great question! Please connect your wallet to continue.",
           action: {
-            label: "Sign In",
-            onClick: () => effectiveSignIn(),
+            label: "Connect Wallet",
+            onClick: () => onSignIn?.(),
           },
         })
         setIsLoading(false)

@@ -6,13 +6,11 @@ import IntentInput from "@/components/IntentInput"
 import FeaturesSection from "@/components/ui/features-section"
 import { ArrowRight, Sparkles, Zap } from "lucide-react"
 import Link from "next/link"
-import { useUser } from "@civic/auth/react"
 import { Button } from "@/components/ui/button"
 
 export default function HomePage() {
   const [showDemo, setShowDemo] = useState(false)
   const [mounted, setMounted] = useState(false)
-  const { user, signIn } = useUser()
   const router = useRouter()
   const heroRef = useRef<HTMLDivElement>(null)
   const stickyNavRef = useRef<HTMLDivElement>(null)
@@ -28,15 +26,15 @@ export default function HomePage() {
 
   const handleSignIn = () => {
     scrollToHero()
-    setTimeout(() => signIn(), 100)
+    // The original code had signIn() here, but useUser is removed.
+    // Assuming the intent was to redirect to a wallet connection page or similar.
+    // For now, we'll just scroll to hero.
   }
 
   const handleDashboardClick = () => {
-    if (user) {
-      router.push("/dashboard")
-    } else {
-      handleSignIn()
-    }
+    // The original code had user check here.
+    // Since user is no longer available, we'll just redirect to dashboard.
+    router.push("/dashboard")
   }
 
   const handleIntentSubmit = (intent: string) => {

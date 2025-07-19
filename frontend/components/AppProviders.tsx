@@ -1,6 +1,5 @@
 "use client";
 
-import { CivicAuthProvider } from '@civic/auth/nextjs';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { WagmiProvider, createConfig, http } from 'wagmi';
 import type { Chain } from 'wagmi/chains';
@@ -51,9 +50,7 @@ export function AppProviders({ children }: { children: React.ReactNode }) {
   return (
     <WagmiProvider config={wagmiConfig}>
       <QueryClientProvider client={queryClient}>
-        <CivicAuthProvider>
           {children}
-        </CivicAuthProvider>
       </QueryClientProvider>
     </WagmiProvider>
   );

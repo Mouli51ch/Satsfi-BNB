@@ -10,7 +10,7 @@ import PriceTicker from "@/components/PriceTicker"
 import PriceChart from "@/components/PriceChart"
 import MarketOverview from "@/components/MarketOverview"
 import { Sparkles, TrendingUp, DollarSign, Activity, BarChart3, RefreshCw, Bot } from "lucide-react"
-import { useUser } from "@civic/auth/react"
+// Remove: import { useUser } from "@civic/auth/react"
 import { usePortfolio } from "@/hooks/usePortfolio"
 import { Skeleton } from "@/components/ui/skeleton"
 import GeminiChatbot from "@/components/GeminiChatbot"
@@ -40,7 +40,7 @@ export default function Dashboard() {
   const [selectedChart, setSelectedChart] = useState<"BTC" | "ETH" | "CORE">("BTC")
   const [isChatbotOpen, setIsChatbotOpen] = useState(false)
   const [chatbotInitialMessage, setChatbotInitialMessage] = useState<string | undefined>()
-  const { user } = useUser()
+  // Remove: const { user } = useUser()
   const { portfolio, isLoading, error, refetch } = usePortfolio()
   const [vaults, setVaults] = useState<any[]>([])
   const [vaultsLoading, setVaultsLoading] = useState(true)
@@ -158,7 +158,7 @@ export default function Dashboard() {
           <div className="flex justify-between items-center">
             <div>
               <h1 className="text-4xl font-bold gradient-text mb-2">
-                Welcome back, {user ? user.name || 'Satsfi User' : '...'}
+                Welcome back, {portfolio?.walletAddress ? portfolio.walletAddress.substring(0, 6) + '...' + portfolio.walletAddress.substring(portfolio.walletAddress.length - 4) : '...'}
               </h1>
               <p className="text-gray-400">Here's your portfolio overview and real-time market data</p>
             </div>
