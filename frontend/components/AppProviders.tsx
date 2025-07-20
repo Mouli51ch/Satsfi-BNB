@@ -4,22 +4,6 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { WagmiProvider, createConfig, http } from 'wagmi';
 import type { Chain } from 'wagmi/chains';
 
-export const coreDaoTestnet = {
-  id: 1114,
-  name: 'Core Blockchain TestNet',
-  nativeCurrency: {
-    name: 'Test Core',
-    symbol: 'tCORE',
-    decimals: 18,
-  },
-  rpcUrls: {
-    default: { http: ['https://rpc.test2.btcs.network'] },
-  },
-  blockExplorers: {
-    default: { name: 'CoreScan', url: 'https://scan.test2.btcs.network' },
-  },
-} as const satisfies Chain;
-
 export const bnbTestnet = {
   id: 97,
   name: 'BNB Chain Testnet',
@@ -37,10 +21,9 @@ export const bnbTestnet = {
 } as const satisfies Chain;
 
 const wagmiConfig = createConfig({
-  chains: [bnbTestnet, coreDaoTestnet], // BNB testnet first, CoreDAO as fallback
+  chains: [bnbTestnet], // Only BNB testnet
   transports: {
     [bnbTestnet.id]: http(),
-    [coreDaoTestnet.id]: http(),
   },
 });
 

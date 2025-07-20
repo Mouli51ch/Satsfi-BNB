@@ -34,10 +34,10 @@ const staticAlerts: Alert[] = [
 ]
 
 export default function Dashboard() {
-  const [lastIntent, setLastIntent] = useState("Stake 0.5 Core")
-  const [systemResponse, setSystemResponse] = useState("Staked into stCORE Vault")
+  const [lastIntent, setLastIntent] = useState("Stake 0.5 BNB")
+  const [systemResponse, setSystemResponse] = useState("Staked into stBNB Vault")
   const [mounted, setMounted] = useState(false)
-  const [selectedChart, setSelectedChart] = useState<"BTC" | "ETH" | "CORE">("BTC")
+  const [selectedChart, setSelectedChart] = useState<"BTC" | "ETH" | "BNB">("BTC")
   const [isChatbotOpen, setIsChatbotOpen] = useState(false)
   const [chatbotInitialMessage, setChatbotInitialMessage] = useState<string | undefined>()
   // Remove: const { user } = useUser()
@@ -207,15 +207,15 @@ export default function Dashboard() {
           <StatCard
             icon={<DollarSign className="w-8 h-8" />}
             title="Staked Balance"
-            value={`${parseFloat(portfolio?.stakedBalance || "0").toFixed(4)} stCORE`}
-            subtext="Staked CORE Balance"
+            value={`${parseFloat(portfolio?.stakedBalance || "0").toFixed(4)} stBNB`}
+            subtext="Staked BNB Balance"
             color="green"
             loading={isLoading}
           />
           <StatCard
             icon={<Activity className="w-8 h-8" />}
             title="Borrowed Balance"
-            value={`${parseFloat(portfolio?.borrowedBalance || "0").toFixed(4)} CORE`}
+            value={`${parseFloat(portfolio?.borrowedBalance || "0").toFixed(4)} BNB`}
             subtext="Total Borrowed"
             color="orange"
             loading={isLoading}
@@ -296,7 +296,7 @@ export default function Dashboard() {
                   <h2 className="text-2xl font-bold gradient-text">Price Charts</h2>
                 </div>
                 <div className="flex bg-gray-800/50 rounded-lg p-1">
-                  {(["BTC", "ETH", "CORE"] as const).map((s) => (
+                  {(["BTC", "ETH", "BNB"] as const).map((s) => (
                     <button
                       key={s}
                       onClick={() => setSelectedChart(s)}

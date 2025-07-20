@@ -31,7 +31,7 @@ interface IntentInputProps {
 }
 
 export default function IntentInput({
-  placeholder = "e.g., Stake 0.5 Core",
+  placeholder = "e.g., Stake 0.5 BNB",
   className = "",
   onSignIn,
   onNewResponse,

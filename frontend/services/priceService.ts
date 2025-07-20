@@ -18,7 +18,7 @@ export interface ChartDataPoint {
 }
 
 // The IDs of the cryptocurrencies we want to fetch from CoinGecko
-const COIN_GECKO_IDS = ["bitcoin", "ethereum", "usd-coin", "tether", "core"];
+const COIN_GECKO_IDS = ["bitcoin", "ethereum", "usd-coin", "tether", "bnb"];
 
 export class PriceService {
   private static instance: PriceService
@@ -88,7 +88,7 @@ export class PriceService {
         'ethereum': { symbol: 'ETH', name: 'Ethereum' },
         'usd-coin': { symbol: 'USDC', name: 'USD Coin' },
         'tether': { symbol: 'USDT', name: 'Tether' },
-        'coredaoorg': { symbol: 'CORE', name: 'Core' }
+        'bnb': { symbol: 'BNB', name: 'BNB' }
       };
 
       Object.keys(data).forEach(id => {
@@ -151,7 +151,7 @@ export class PriceService {
           'ETH': 'ethereum',
           'USDC': 'usd-coin',
           'USDT': 'tether',
-          'CORE': 'coredaoorg'
+          'BNB': 'bnb'
       };
       return map[symbol] || null;
   }

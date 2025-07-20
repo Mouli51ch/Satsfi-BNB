@@ -8,12 +8,12 @@ import MarketOverview from "@/components/MarketOverview"
 import { BarChart3 } from "lucide-react"
 
 export default function MarketsPage() {
-  const [selectedAsset, setSelectedAsset] = useState<"BTC" | "ETH" | "CORE" | "USDC" | "USDT">("BTC")
+  const [selectedAsset, setSelectedAsset] = useState<"BTC" | "ETH" | "BNB" | "USDC" | "USDT">("BTC")
 
   const assets = [
     { symbol: "BTC", name: "Bitcoin" },
     { symbol: "ETH", name: "Ethereum" },
-    { symbol: "CORE", name: "Core" },
+    { symbol: "BNB", name: "BNB" },
     { symbol: "USDC", name: "USD Coin" },
     { symbol: "USDT", name: "Tether" },
   ] as const
