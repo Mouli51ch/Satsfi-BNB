@@ -10,7 +10,7 @@ export default function FeaturesSection() {
     {
       title: "AI-Powered Optimization",
       description:
-        "Our Gemini AI continuously monitors BNB DeFi protocols to maximize your stBNB yields automatically.",
+        "Our Gemini AI continuously monitors BNB DeFi protocols to maximize your BNB yields automatically.",
       skeleton: <SkeletonOne />,
       className: "col-span-1 lg:col-span-4 border-b lg:border-r border-gray-800/50",
     },
@@ -109,7 +109,7 @@ export const SkeletonOne = () => {
               <span className="text-green-400 font-mono">7.2% APY</span>
             </div>
             <div className="flex justify-between items-center p-3 bg-gray-800/50 rounded-lg">
-              <span className="text-gray-300">stBNB Vault</span>
+              <span className="text-gray-300">BNB testnet Vault</span>
               <span className="text-green-400 font-mono">6.1% APY</span>
             </div>
             <div className="flex justify-between items-center p-3 bg-gray-800/50 rounded-lg">
@@ -134,7 +134,7 @@ export const SkeletonOne = () => {
 export const SkeletonTwo = () => {
   const protocols = [
     { name: "Babylon", logo: "B", color: "from-orange-500 to-red-500", apy: "7.2%" },
-    { name: "stBNB", logo: "sB", color: "from-blue-500 to-cyan-500", apy: "6.1%" },
+    { name: "BNB testnet", logo: "BNB", color: "from-blue-500 to-cyan-500", apy: "6.1%" },
     { name: "Pell", logo: "P", color: "from-purple-500 to-pink-500", apy: "5.7%" },
     { name: "B14G", logo: "B14", color: "from-green-500 to-emerald-500", apy: "8.3%" },
     { name: "Aave", logo: "A", color: "from-indigo-500 to-purple-500", apy: "4.8%" },

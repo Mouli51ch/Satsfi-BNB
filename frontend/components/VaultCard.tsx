@@ -65,7 +65,7 @@ export default function VaultCard({ name, apy, tvl, description, risk = "medium"
 
       <button
         onClick={handleStake}
-        className="btn-primary btn-glow w-full group-hover:shadow-orange-500/50 transition-all duration-300"
+        className="btn-primary btn-glow w-full transition-all duration-300"
       >
         <Zap className="w-4 h-4 mr-2" />
         Stake Now

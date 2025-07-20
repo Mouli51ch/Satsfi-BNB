@@ -88,7 +88,8 @@ export class PriceService {
         'ethereum': { symbol: 'ETH', name: 'Ethereum' },
         'usd-coin': { symbol: 'USDC', name: 'USD Coin' },
         'tether': { symbol: 'USDT', name: 'Tether' },
-        'bnb': { symbol: 'BNB', name: 'BNB' }
+        'bnb': { symbol: 'BNB', name: 'BNB' },
+        'binancecoin': { symbol: 'BNB', name: 'BNB' }, // Added for CoinGecko compatibility
       };
 
       Object.keys(data).forEach(id => {
@@ -132,7 +133,15 @@ export class PriceService {
         }
         const data = await response.json();
 
-        // The API returns {prices: [[timestamp, price]], total_volumes: [[timestamp, volume]]}
+        // Defensive: handle missing or malformed data
+        if (!data || !Array.isArray(data.prices)) {
+            console.warn(`No price data for ${symbol}:`, data);
+            return [];
+        }
+        if (!Array.isArray(data.total_volumes)) {
+            data.total_volumes = [];
+        }
+
         return data.prices.map((p: [number, number], index: number) => ({
             timestamp: p[0],
             price: p[1],
@@ -151,7 +160,7 @@ export class PriceService {
           'ETH': 'ethereum',
           'USDC': 'usd-coin',
           'USDT': 'tether',
-          'BNB': 'bnb'
+          'BNB': 'binancecoin' // Correct CoinGecko ID for BNB
       };
       return map[symbol] || null;
   }

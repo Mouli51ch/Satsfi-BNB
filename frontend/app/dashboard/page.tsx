@@ -35,7 +35,7 @@ const staticAlerts: Alert[] = [
 
 export default function Dashboard() {
   const [lastIntent, setLastIntent] = useState("Stake 0.5 BNB")
-  const [systemResponse, setSystemResponse] = useState("Staked into stBNB Vault")
+  const [systemResponse, setSystemResponse] = useState("Staked into BNB Vault")
   const [mounted, setMounted] = useState(false)
   const [selectedChart, setSelectedChart] = useState<"BTC" | "ETH" | "BNB">("BTC")
   const [isChatbotOpen, setIsChatbotOpen] = useState(false)
@@ -207,7 +207,7 @@ export default function Dashboard() {
           <StatCard
             icon={<DollarSign className="w-8 h-8" />}
             title="Staked Balance"
-            value={`${parseFloat(portfolio?.stakedBalance || "0").toFixed(4)} stBNB`}
+            value={`${parseFloat(portfolio?.stakedBalance || "0").toFixed(4)} BNB`}
             subtext="Staked BNB Balance"
             color="green"
             loading={isLoading}

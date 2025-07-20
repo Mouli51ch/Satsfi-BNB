@@ -142,27 +142,21 @@
     box-shadow: 0 0 15px rgba(180, 255, 60, 0.4);
   }
 
+  /* Remove the orange overlay on hover */
   .btn-primary::before {
     content: '';
     @apply absolute top-0 left-0 w-full h-full;
-    background-image: linear-gradient(to right, #FB923C, #F97316);
+    /* No background-image for overlay */
     opacity: 0;
     transition: opacity 0.3s ease;
     z-index: 0;
   }
-
-  .btn-primary > * {
-    @apply relative;
-    z-index: 1;
-  }
-
   .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 20px rgba(180, 255, 60, 0.6);
   }
-
   .btn-primary:hover::before {
-    opacity: 1;
+    opacity: 0;
   }
 
   .btn-secondary {

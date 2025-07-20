@@ -154,8 +154,8 @@ export default function HomePage() {
 
           <div className="max-w-3xl mx-auto mb-12 slide-up slide-up-delay-3">
             <IntentInput
-              placeholder={showDemo ? "Borrow 2,000 BNB without selling stBNB" : "e.g., Max yield on 0.5 stBNB"}
-              defaultValue={showDemo ? "Borrow 2,000 BNB without selling stBNB" : ""}
+              placeholder={showDemo ? "Borrow 2,000 BNB without selling BNB" : "e.g., Max yield on 0.5 BNB"}
+              defaultValue={showDemo ? "Borrow 2,000 BNB without selling BNB" : ""}
               onSubmit={handleIntentSubmit}
               className="mb-8"
               onSignIn={handleSignIn}
